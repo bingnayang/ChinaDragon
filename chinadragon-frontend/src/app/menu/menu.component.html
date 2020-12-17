@@ -1,1 +1,14 @@
-<p>menu works!</p>
+
+<h4>Appetizers</h4>
+<div *ngFor="let item of menuItems">
+    <div *ngIf=" item.section  == 'Appetizers'">
+        <li>{{ item.name }} {{ item.price }}</li>
+    </div>
+</div>
+
+<h4>Soup</h4>
+<div *ngFor="let item of menuItems">
+    <div *ngIf=" item.section  == 'Soup'">
+        <li>{{ item.name }} {{ item.price }}</li>
+    </div>
+</div>
