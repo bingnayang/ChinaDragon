@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+
+.methodsBtn{
+    margin-right: 15px; 
+    background-color: #1F3944; 
+    border: none; 
+    color:  rgb(42, 222, 179);
+}
+.lead{
+    font-family: 'Gruppo', cursive;
+    font-size: 25px;
+}
