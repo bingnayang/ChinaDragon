@@ -1,10 +1,17 @@
 package com.restaurant.chinadragonbackend.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,15 +29,15 @@ public class Menu {
 	@Column(name="section")
 	private String section;
 	
-	@Column(name="price")
-	private double price;
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="menu_id")
+	private List<SizePrice> sizePrice;
 	
 	public Menu() {}
 
-	public Menu(String name, String section, double price) {
+	public Menu(String name, String section) {
 		this.name = name;
 		this.section = section;
-		this.price = price;
 	}
 
 	public int getId() {
@@ -57,12 +64,19 @@ public class Menu {
 		this.section = section;
 	}
 
-	public double getPrice() {
-		return price;
+	public List<SizePrice> getSizePrice() {
+		return sizePrice;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setSizePrice(List<SizePrice> sizePrice) {
+		this.sizePrice = sizePrice;
 	}
-
+	// Add a convenience method
+	public void addSizePrice(SizePrice theSizePrices) {
+		if(sizePrice == null) {
+			sizePrice = new ArrayList<>();
+		}
+		sizePrice.add(theSizePrices);
+	}
+	
 }
