@@ -5,7 +5,7 @@
             <div *ngIf=" item.section  == 'Appetizers'">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     {{ item.name }}
-                    <span class="">${{ item.price }}</span>
+                    <span class="">${{ item.sizePrice[0].price }}</span>
                   </li>
             </div>
         </div>
@@ -16,7 +16,14 @@
         <div *ngIf=" item.section  == 'Soup'">
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ item.name }}
-                <span class="">${{ item.price }} / {{ item.size }}</span>
+                <span class="">
+                    <div>
+                        ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }}
+                    </div>
+                    <div>
+                        ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }}
+                    </div>
+                </span>
             </li>
         </div>
     </div>
