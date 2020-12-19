@@ -1,30 +1,65 @@
 <div class="container">
+    <br>
     <h4>Appetizers</h4>
     <ul class="list-group">     
         <div *ngFor="let item of menuItems">
             <div *ngIf=" item.section  == 'Appetizers'">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
                     {{ item.name }}
                     <span class="">${{ item.sizePrice[0].price }}</span>
                   </li>
             </div>
         </div>
     </ul>
-    
+    <br>
     <h4>Soup</h4>
     <div *ngFor="let item of menuItems">
         <div *ngIf=" item.section  == 'Soup'">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+            <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
+                {{ item.name }}
+                <span class="">
+                        [ ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }} ]
+                </span>
+            </li>
+        </div>
+    </div>
+    <br>
+    <h4>Fried Rice</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Fried Rice'">
+            <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
+                {{ item.name }}
+                <span class="">
+                    [ ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }} ]
+                </span>
+            </li>
+        </div>
+    </div>
+    <br>
+    <h4>Lo Mein</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Lo Mein'">
+            <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
+                {{ item.name }}
+                <span class="">
+                    [ ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }} ]
+                </span>
+            </li>
+        </div>
+    </div>
+    <br>
+    <h4>Dinner Specials</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Dinner'">
+            <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
                 {{ item.name }}
                 <span class="">
                     <div>
-                        ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }}
-                    </div>
-                    <div>
-                        ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }}
+                        ${{ item.sizePrice[0].price }}
                     </div>
                 </span>
             </li>
         </div>
     </div>
+
 </div>
