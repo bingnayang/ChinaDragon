@@ -10,3 +10,7 @@
     font-family: 'Gruppo', cursive;
     font-size: 25px;
 }
+.deliveryBtn{
+    color:  rgb(42, 222, 179);
+    text-decoration:none;
+}
