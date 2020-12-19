@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hour } from '../hour';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { Comment } from '../comment';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   address: string[];
   phones: string[];
   hours: Hour[];
+  theComment: Comment = new Comment();
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -34,6 +36,10 @@ export class HomeComponent implements OnInit {
 
   fullMenu(){
     this.router.navigate(['menu']);
+  }
+
+  submitComment(){
+    console.log(this.theComment);
   }
 
 }

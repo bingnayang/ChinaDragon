@@ -75,24 +75,24 @@
 <div class="container-fluid" style="height: 500px; margin-top: -32px;">
     <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
         <h3>Questions/Feedback</h3>
-        <form>
+        <form (ngSubmit)="submitComment()">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Name</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="theComment.contactname" name="contactname" required>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control">
+                <input type="email" class="form-control" [(ngModel)]="theComment.email" name="email">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Phone Number</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="theComment.phone" name="phone">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="theComment.comment" name="comment"></textarea>
             </div>
-            <button class="btn btn-primary btn-block" style="background-color: #1F3944; color: rgb(42, 222, 179); border: none;">Submit</button>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #1F3944; color: rgb(42, 222, 179); border: none;">Submit</button>
         </form>
     </div>
 </div>
