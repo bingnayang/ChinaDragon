@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit {
   fullMenu(){
     this.router.navigate(['menu']);
   }
+  orderOnline(){
+    this.router.navigate(['order-online']);
+  }
 
   onSubmit(){
     this.saveComment();

@@ -7,12 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { OrderOnlineComponent } from './order-online/order-online.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    OrderOnlineComponent
   ],
   imports: [
     BrowserModule,
