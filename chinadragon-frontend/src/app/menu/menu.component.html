@@ -6,7 +6,7 @@
             <div *ngIf=" item.section  == 'Appetizers'">
                 <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
                     {{ item.name }}
-                    <span class="">${{ item.sizePrice[0].price }}</span>
+                    <span class="">{{ item.sizePrice[0].price | currency: 'USD'}}</span>
                   </li>
             </div>
         </div>
@@ -18,7 +18,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
                 {{ item.name }}
                 <span class="">
-                        [ ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }} ]
+                        [ {{ item.sizePrice[0].price | currency: 'USD'}} / {{ item.sizePrice[0].size }} ] [ {{ item.sizePrice[1].price | currency: 'USD'}} / {{ item.sizePrice[1].size }} ]
                 </span>
             </li>
         </div>
@@ -30,7 +30,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
                 {{ item.name }}
                 <span class="">
-                    [ ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }} ]
+                    [ ${{ item.sizePrice[0].price | currency: 'USD' }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price | currency: 'USD' }} / {{ item.sizePrice[1].size }} ]
                 </span>
             </li>
         </div>
@@ -42,7 +42,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-center bg-light" style="border: none;">
                 {{ item.name }}
                 <span class="">
-                    [ ${{ item.sizePrice[0].price }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price }} / {{ item.sizePrice[1].size }} ]
+                    [ ${{ item.sizePrice[0].price | currency: 'USD' }} / {{ item.sizePrice[0].size }} ] [ ${{ item.sizePrice[1].price | currency: 'USD' }} / {{ item.sizePrice[1].size }} ]
                 </span>
             </li>
         </div>
@@ -55,7 +55,7 @@
                 {{ item.name }}
                 <span class="">
                     <div>
-                        ${{ item.sizePrice[0].price }}
+                        ${{ item.sizePrice[0].price | currency: 'USD' }}
                     </div>
                 </span>
             </li>
