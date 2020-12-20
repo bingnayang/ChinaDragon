@@ -1,6 +1,6 @@
 export class Comment {
-    contactname: string;
+    name: string;
     email: string;
     phone: string;
-    comment: string;
+    comments: string;
 }

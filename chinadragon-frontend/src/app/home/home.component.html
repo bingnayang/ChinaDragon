@@ -75,10 +75,10 @@
 <div class="container-fluid" style="height: 500px; margin-top: -32px;">
     <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
         <h3>Questions/Feedback</h3>
-        <form (ngSubmit)="submitComment()">
+        <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Name</label>
-                <input type="text" class="form-control" [(ngModel)]="theComment.contactname" name="contactname" required>
+                <input type="text" class="form-control" [(ngModel)]="theComment.name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email address</label>
@@ -90,7 +90,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="theComment.comment" name="comment"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="theComment.comments" name="comment"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block" style="background-color: #1F3944; color: rgb(42, 222, 179); border: none;">Submit</button>
         </form>

@@ -3,6 +3,7 @@ import { Hour } from '../hour';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Comment } from '../comment';
+import { CommentService } from '../comment.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   hours: Hour[];
   theComment: Comment = new Comment();
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private commentService: CommentService) { }
 
   ngOnInit(): void {
     this.name = "China Dragon";
@@ -38,7 +39,16 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['menu']);
   }
 
-  submitComment(){
+  onSubmit(){
+    this.saveComment();
+  }
+
+  saveComment(){
+    this.commentService.createComment(this.theComment).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['home']);
+      this.theComment = new Comment();
+    })
     console.log(this.theComment);
   }
 
