@@ -1,1 +1,93 @@
-<p>order-online works!</p>
+<div class="container">
+    <h4>Appetizers</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Appetizers'">
+            <div class="card h-100 mx-auto" style="width: 18rem;">
+                <!-- <img src="{{  }}" class="card-img-top" alt="image"> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ item.name }}</h5>
+                    <h6 class="card-subtitle">
+                        {{ item.sizePrice[0].price | currency: 'USD' }}
+                    </h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><button class="btn btn-primary btn-block">Add To Cart</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h4>Soup</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Soup'">
+            <div class="card h-100 mx-auto" style="width: 18rem;">
+                <!-- <img src="{{  }}" class="card-img-top" alt="image"> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ item.name }}</h5>
+                    <h6 class="card-subtitle">
+                        {{ item.sizePrice[0].price | currency: 'USD' }}
+                    </h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><button class="btn btn-primary btn-block">Add To Cart</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <h4>Fried Rice</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Fried Rice'">
+            <div class="card h-100 mx-auto" style="width: 18rem;">
+                <!-- <img src="{{  }}" class="card-img-top" alt="image"> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ item.name }}</h5>
+                    <h6 class="card-subtitle">
+                        {{ item.sizePrice[0].price | currency: 'USD' }}
+                    </h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><button class="btn btn-primary btn-block">Add To Cart</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <h4>Lo Mein</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Lo Mein'">
+            <div class="card h-100 mx-auto" style="width: 18rem;">
+                <!-- <img src="{{  }}" class="card-img-top" alt="image"> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ item.name }}</h5>
+                    <h6 class="card-subtitle">
+                        {{ item.sizePrice[0].price | currency: 'USD' }}
+                    </h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><button class="btn btn-primary btn-block">Add To Cart</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h4>Dinner Specials</h4>
+    <div *ngFor="let item of menuItems">
+        <div *ngIf=" item.section  == 'Dinner'">
+            <div class="card h-100 mx-auto" style="width: 18rem;">
+                <!-- <img src="{{  }}" class="card-img-top" alt="image"> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ item.name }}</h5>
+                    <h6 class="card-subtitle">
+                        {{ item.sizePrice[0].price | currency: 'USD' }}
+                    </h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><button class="btn btn-primary btn-block">Add To Cart</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
