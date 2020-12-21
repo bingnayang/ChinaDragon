@@ -29,15 +29,19 @@ public class Menu {
 	@Column(name="section")
 	private String section;
 	
+	@Column(name="image")
+	private String image;
+	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="menu_id")
 	private List<SizePrice> sizePrice;
 	
 	public Menu() {}
 
-	public Menu(String name, String section) {
+	public Menu(String name, String section, String image) {
 		this.name = name;
 		this.section = section;
+		this.image = image;
 	}
 
 	public int getId() {
@@ -62,6 +66,14 @@ public class Menu {
 
 	public void setSection(String section) {
 		this.section = section;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public List<SizePrice> getSizePrice() {

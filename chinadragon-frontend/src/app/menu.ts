@@ -4,5 +4,6 @@ export class Menu {
     id: number;
     name: string;
     section: string;
+    image: string;
     sizePrice: Sizeprice[];
 }
