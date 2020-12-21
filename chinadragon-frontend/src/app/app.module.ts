@@ -8,7 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { OrderOnlineComponent } from './order-online/order-online.component';
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -21,9 +21,7 @@ import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    NgbModule,
-    NgbModal
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,5 +22,4 @@ export class OrderOnlineComponent implements OnInit {
       console.log(this.menuItems);
     },error => console.log(error));
   }
-
 }
