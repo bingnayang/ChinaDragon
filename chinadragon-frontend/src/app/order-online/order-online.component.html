@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline-dark btn-block btn-sm"
-                            (click)="addToCart(item.id, item.sizePrice[0].size, item.sizePrice[0].price)">Add To Cart |
+                            (click)="addToCart(item.section, item.name, item.sizePrice[0].size, item.sizePrice[0].price)">Add To Cart |
                             {{ item.sizePrice[0].price | currency:
                             'USD'}}</button>
                     </div>
@@ -44,10 +44,10 @@
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-outline-dark btn-block btn-sm"
-                            (click)="addToCart(item.id, item.sizePrice[0].size, item.sizePrice[0].price)">Add To Cart |
+                            (click)="addToCart(item.section, item.name, item.sizePrice[0].size, item.sizePrice[0].price)">Add To Cart |
                             {{ item.sizePrice[0].price | currency: 'USD'}} Small</button>
                         <button class="btn btn-outline-dark btn-block btn-sm"
-                            (click)="addToCart(item.id, item.sizePrice[1].size, item.sizePrice[1].price)">Add To Cart |
+                            (click)="addToCart(item.section, item.name, item.sizePrice[1].size, item.sizePrice[1].price)">Add To Cart |
                             {{ item.sizePrice[1].price | currency: 'USD'}} Large</button>
                     </div>
                 </div>
@@ -73,10 +73,10 @@
                         </div>
                         <div class="card-footer">
                             <button class="btn btn-outline-dark btn-block btn-sm"
-                                (click)="addToCart(item.id, item.sizePrice[0].size, item.sizePrice[0].price)">Add To
+                                (click)="addToCart(item.section, item.name, item.sizePrice[0].size, item.sizePrice[0].price)">Add To
                                 Cart | {{ item.sizePrice[0].price | currency: 'USD'}} Small</button>
                             <button class="btn btn-outline-dark btn-block btn-sm"
-                                (click)="addToCart(item.id, item.sizePrice[1].size, item.sizePrice[1].price)">Add To
+                                (click)="addToCart(item.section, item.name, item.sizePrice[1].size, item.sizePrice[1].price)">Add To
                                 Cart | {{ item.sizePrice[1].price | currency: 'USD'}} Large</button>
                         </div>
                     </div>
@@ -103,10 +103,10 @@
                         </div>
                         <div class="card-footer">
                             <button class="btn btn-outline-dark btn-block btn-sm"
-                                (click)="addToCart(item.id, item.sizePrice[0].size, item.sizePrice[0].price)">Add To
+                                (click)="addToCart(item.section, item.name, item.sizePrice[0].size, item.sizePrice[0].price)">Add To
                                 Cart | {{ item.sizePrice[0].price | currency: 'USD'}} Small</button>
                             <button class="btn btn-outline-dark btn-block btn-sm"
-                                (click)="addToCart(item.id, item.sizePrice[1].size, item.sizePrice[1].price)">Add To
+                                (click)="addToCart(item.section, item.name, item.sizePrice[1].size, item.sizePrice[1].price)">Add To
                                 Cart | {{ item.sizePrice[1].price | currency: 'USD'}} Large</button>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                         </div>
                         <div class="card-footer">
                             <button class="btn btn-outline-dark btn-block btn-sm"
-                                (click)="addToCart(item.id, item.sizePrice[0].size, item.sizePrice[0].price)">Add To
+                                (click)="addToCart(item.section, item.name, item.sizePrice[0].size, item.sizePrice[0].price)">Add To
                                 Cart | {{ item.sizePrice[0].price | currency:
                                 'USD'}}</button>
                         </div>

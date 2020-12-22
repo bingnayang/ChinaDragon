@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from '../menu';
 import { MenuService } from '../menu.service';
+import { OrderList } from '../order-list';
 
 @Component({
   selector: 'app-order-online',
@@ -9,6 +10,8 @@ import { MenuService } from '../menu.service';
 })
 export class OrderOnlineComponent implements OnInit {
   menuItems: Menu[];
+  order: OrderList = new OrderList();
+  orderList: OrderList[] = [];
 
   constructor(private menuService: MenuService) { }
 
@@ -23,7 +26,16 @@ export class OrderOnlineComponent implements OnInit {
     },error => console.log(error));
   }
 
-  addToCart(id: number, size: string, price: number){
-    console.log(id+" "+size+" "+price);
+  addToCart(sectionName: string, name: string, size: string, price: number){
+    this.order.section = sectionName;
+    this.order.name = name;
+    this.order.size = size;
+    this.order.price = price;
+
+    console.log(this.order)
+    this.orderList.push(this.order)
+
   }
+  
+
 }
