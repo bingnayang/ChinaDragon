@@ -4,22 +4,25 @@
         <b style="color: rgb(42, 222, 179);">China Dragon </b>
         <b style="color: rgb(199, 78, 65);">龍</b>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link text-light" routerLink="home" routerLinkActive="active">[ Home ]</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link text-light" routerLink="menu" routerLinkActive="active">[ Full Menu ]</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link text-light" routerLink="order-online" routerLinkActive="active">[ Online Order ]</a>
-            </li>
-        </ul>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link text-light" routerLink="home" routerLinkActive="active">[ Home ]</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text-light" routerLink="menu" routerLinkActive="active">[ Full Menu ]</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text-light" routerLink="order-online" routerLinkActive="active">[ Online Order ]</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-light my-2 my-sm-0" routerLink="cart"><i style="font-size:24px" class="fa">&#xf07a;</i></button>
+      </div>
     </div>
-</nav>
+  </nav>
 <router-outlet></router-outlet>
