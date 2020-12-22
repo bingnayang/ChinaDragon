@@ -22,4 +22,8 @@ export class OrderOnlineComponent implements OnInit {
       console.log(this.menuItems);
     },error => console.log(error));
   }
+
+  addToCart(id: number, size: string, price: number){
+    console.log(id+" "+size+" "+price);
+  }
 }
