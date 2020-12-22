@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { OrderOnlineComponent } from './order-online/order-online.component';
+import { CartOrderComponent } from './cart-order/cart-order.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { OrderOnlineComponent } from './order-online/order-online.component';
     AppComponent,
     HomeComponent,
     MenuComponent,
-    OrderOnlineComponent
+    OrderOnlineComponent,
+    CartOrderComponent
   ],
   imports: [
     BrowserModule,
