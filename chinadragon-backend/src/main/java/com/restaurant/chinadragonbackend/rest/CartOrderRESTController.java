@@ -2,9 +2,12 @@ package com.restaurant.chinadragonbackend.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.restaurant.chinadragonbackend.entity.CartOrder;
 import com.restaurant.chinadragonbackend.service.CartOrderService;
 
 @RestController
@@ -18,4 +21,10 @@ public class CartOrderRESTController {
 		cartOrderService = theCartOrderService;
 	}
 	
+	@PostMapping("/cart")
+	public CartOrder addCartOrder(@RequestBody CartOrder theCartOrder) {
+		theCartOrder.setId(0);
+		cartOrderService.save(theCartOrder);
+		return theCartOrder;
+	}
 }
