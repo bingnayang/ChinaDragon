@@ -40,4 +40,9 @@ public class CartOrderRESTController {
 	public long getCartOrderCountItem(){
 		return cartOrderService.findItemAmount();
 	}
+	
+	@GetMapping("/cart/order-subtotal")
+	public double getCartOrderTotal(){
+		return cartOrderService.calculateOrderTotal();
+	}
 }

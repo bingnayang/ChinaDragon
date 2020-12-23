@@ -12,4 +12,6 @@ public interface CartOrderDAO {
 
 	long findItemAmount();
 
+	double calculateOrderTotal();
+
 }

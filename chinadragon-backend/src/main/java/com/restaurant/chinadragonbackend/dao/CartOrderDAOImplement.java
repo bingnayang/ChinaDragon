@@ -52,6 +52,15 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		Long itemCount = (Long)theQuery.uniqueResult();
 		return itemCount;
 	}
+
+	@Override
+	public double calculateOrderTotal() {
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		Query theQuery = currentSession.createQuery("SELECT sum(price) from CartOrder", Double.class);
+		Double orderSubTotal = (Double)theQuery.uniqueResult();
+		return orderSubTotal;
+	}
 	
 	
 }

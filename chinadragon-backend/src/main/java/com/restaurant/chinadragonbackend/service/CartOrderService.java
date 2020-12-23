@@ -12,4 +12,6 @@ public interface CartOrderService {
 
 	long findItemAmount();
 
+	double calculateOrderTotal();
+
 }
