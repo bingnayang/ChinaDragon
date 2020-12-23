@@ -17,10 +17,10 @@ public class CartOrder {
 	private int id;
 	
 	@Column(name="section")
-	private int count;
+	private String section;
 	
 	@Column(name="name")
-	private double total;
+	private String name;
 	
 	@Column(name="size")
 	private String size;
@@ -30,9 +30,9 @@ public class CartOrder {
 	
 	public CartOrder() {}
 
-	public CartOrder(int count, double total, String size, double price) {
-		this.count = count;
-		this.total = total;
+	public CartOrder(String section, String name, String size, double price) {
+		this.section = section;
+		this.name = name;
 		this.size = size;
 		this.price = price;
 	}
@@ -45,20 +45,20 @@ public class CartOrder {
 		this.id = id;
 	}
 
-	public int getCount() {
-		return count;
+	public String getSection() {
+		return section;
 	}
 
-	public void setCount(int count) {
-		this.count = count;
+	public void setSection(String section) {
+		this.section = section;
 	}
 
-	public double getTotal() {
-		return total;
+	public String getName() {
+		return name;
 	}
 
-	public void setTotal(double total) {
-		this.total = total;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getSize() {
