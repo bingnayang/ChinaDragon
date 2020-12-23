@@ -8,6 +8,7 @@ import { CartOrder } from './cart-order';
 })
 export class OrderOnlineService {
   private baseURL = "http://localhost:8080/api/cart";
+  private baseURL_DETAIL = "http://localhost:8080/api/cart/order-item";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,5 +18,9 @@ export class OrderOnlineService {
 
   getCartOrder(): Observable<CartOrder[]>{
     return this.httpClient.get<CartOrder[]>(`${this.baseURL}`);
+  }
+
+  countOrderItem(){
+    return this.httpClient.get<number>(`${this.baseURL_DETAIL}`);
   }
 }
