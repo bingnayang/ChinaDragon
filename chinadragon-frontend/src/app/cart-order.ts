@@ -1,4 +1,4 @@
-export class OrderList {
+export class CartOrder {
     section: string;
     name: string;
     size: string;
