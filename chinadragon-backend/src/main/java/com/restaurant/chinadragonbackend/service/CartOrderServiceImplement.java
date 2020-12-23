@@ -1,5 +1,7 @@
 package com.restaurant.chinadragonbackend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,12 @@ public class CartOrderServiceImplement implements CartOrderService {
 	@Transactional
 	public void save(CartOrder theCartOrder) {
 		cartOrderDAO.save(theCartOrder);
+	}
+
+	@Override
+	@Transactional
+	public List<CartOrder> findAll() {
+		return cartOrderDAO.findAll();
 	}
 	
 	

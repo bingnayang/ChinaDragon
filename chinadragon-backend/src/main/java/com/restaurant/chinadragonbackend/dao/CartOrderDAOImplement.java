@@ -1,8 +1,11 @@
 package com.restaurant.chinadragonbackend.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.restaurant.chinadragonbackend.entity.CartOrder;
@@ -22,6 +25,23 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		// Save rates
 		currentSession.saveOrUpdate(theCartOrder);
+	}
+
+	@Override
+	public List<CartOrder> findAll() {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Create a query
+		// Using native Hibernate API
+		Query<CartOrder> theQuery = currentSession.createQuery("from CartOrder",CartOrder.class);
+		
+		// Execute query and get result list
+		List<CartOrder> cartOrders = theQuery.getResultList();
+		
+		// Return the result
+		return cartOrders;
+		
 	}
 	
 	
