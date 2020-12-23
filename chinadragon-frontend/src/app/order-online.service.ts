@@ -14,4 +14,8 @@ export class OrderOnlineService {
   addToCart(order: CartOrder): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,order);
   }
+
+  getCartOrder(): Observable<CartOrder[]>{
+    return this.httpClient.get<CartOrder[]>(`${this.baseURL}`);
+  }
 }
