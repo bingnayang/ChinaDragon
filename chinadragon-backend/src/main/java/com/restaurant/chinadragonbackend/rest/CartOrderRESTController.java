@@ -35,4 +35,9 @@ public class CartOrderRESTController {
 	public List<CartOrder> findAllCartOrder(){
 		return cartOrderService.findAll();
 	}
+	
+	@GetMapping("/cart/order-item")
+	public long getCartOrderCountItem(){
+		return cartOrderService.findItemAmount();
+	}
 }

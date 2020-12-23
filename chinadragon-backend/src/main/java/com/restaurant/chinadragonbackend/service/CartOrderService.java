@@ -10,4 +10,6 @@ public interface CartOrderService {
 
 	List<CartOrder> findAll();
 
+	long findItemAmount();
+
 }

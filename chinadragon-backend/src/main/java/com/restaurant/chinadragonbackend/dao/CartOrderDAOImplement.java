@@ -43,6 +43,15 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		return cartOrders;
 		
 	}
+
+	@Override
+	public long findItemAmount() {
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		Query theQuery = currentSession.createQuery("SELECT count(*) from CartOrder", Long.class);
+		Long itemCount = (Long)theQuery.uniqueResult();
+		return itemCount;
+	}
 	
 	
 }

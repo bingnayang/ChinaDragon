@@ -29,6 +29,12 @@ public class CartOrderServiceImplement implements CartOrderService {
 	public List<CartOrder> findAll() {
 		return cartOrderDAO.findAll();
 	}
+
+	@Override
+	@Transactional
+	public long findItemAmount() {
+		return cartOrderDAO.findItemAmount();
+	}
 	
 	
 	

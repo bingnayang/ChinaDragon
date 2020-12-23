@@ -10,4 +10,6 @@ public interface CartOrderDAO {
 
 	List<CartOrder> findAll();
 
+	long findItemAmount();
+
 }
