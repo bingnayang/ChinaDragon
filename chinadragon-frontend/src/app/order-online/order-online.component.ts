@@ -31,6 +31,7 @@ export class OrderOnlineComponent implements OnInit {
     this.order.name = name;
     this.order.size = size;
     this.order.price = price;
+    this.order.quantity = 1;
 
     console.log(this.order)
     this.submitToCart();
