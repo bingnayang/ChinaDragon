@@ -33,8 +33,12 @@ public class CartOrderRESTController {
 	}
 	
 	@GetMapping("/cart/{theItemName}/{theItemSize}")
-	public boolean findOrderItem(@PathVariable String theItemName, @PathVariable String theItemSize) {
-		return cartOrderService.findOrderItem(theItemName,theItemSize);
+	public int findOrderItem(@PathVariable String theItemName, @PathVariable String theItemSize) {
+		try {
+			 return cartOrderService.findOrderItem(theItemName,theItemSize);			
+		}catch (Exception e) {
+			return -1;
+		}
 	}
 	
 	@GetMapping("/cart")

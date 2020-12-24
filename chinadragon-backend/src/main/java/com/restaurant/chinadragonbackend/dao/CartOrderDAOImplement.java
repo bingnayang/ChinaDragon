@@ -63,7 +63,7 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 	}
 
 	@Override
-	public boolean findOrderItem(String theItemName, String theItemSize) {
+	public int findOrderItem(String theItemName, String theItemSize) {
 		// Get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
 
@@ -71,12 +71,9 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		theQuery.setParameter("name",theItemName);
 		theQuery.setParameter("size",theItemSize);
 		Integer result = (Integer) theQuery.uniqueResult();
-		
-		if(result == null) {
-			return false;
-		}else {
-			return true;
-		}
+		System.out.println("Id: "+result);
+
+		return result;
 
 	}
 	

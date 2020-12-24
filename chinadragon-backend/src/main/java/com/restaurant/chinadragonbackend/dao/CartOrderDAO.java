@@ -14,6 +14,6 @@ public interface CartOrderDAO {
 
 	double calculateOrderTotal();
 
-	boolean findOrderItem(String theItemName, String theItemSize);
+	int findOrderItem(String theItemName, String theItemSize);
 
 }
