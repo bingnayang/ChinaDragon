@@ -3,4 +3,5 @@ export class CartOrder {
     name: string;
     size: string;
     price: number;
+    quantity: number;
 }

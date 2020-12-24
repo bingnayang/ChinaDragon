@@ -28,13 +28,17 @@ public class CartOrder {
 	@Column(name="price")
 	private double price;
 	
+	@Column(name="quantity")
+	private int quantity;
+	
 	public CartOrder() {}
 
-	public CartOrder(String section, String name, String size, double price) {
+	public CartOrder(String section, String name, String size, double price, int quantity) {
 		this.section = section;
 		this.name = name;
 		this.size = size;
 		this.price = price;
+		this.quantity = quantity;
 	}
 
 	public int getId() {
@@ -76,4 +80,13 @@ public class CartOrder {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
 }
