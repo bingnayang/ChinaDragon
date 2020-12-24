@@ -31,9 +31,9 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Item #: {{ countItem }}</li>
-                        <li class="list-group-item">Sub-Total:</li>
-                        <li class="list-group-item">Tax:</li>
-                        <li class="list-group-item">Total:</li>
+                        <li class="list-group-item">Sub-Total: {{ orderSubTotal | currency: 'USD' }}</li>
+                        <li class="list-group-item">Tax 8%: {{ orderTax | currency }}</li>
+                        <li class="list-group-item">Total: {{ orderTotal | currency: 'USD' }}</li>
                     </ul>
                 </div>
             </div>

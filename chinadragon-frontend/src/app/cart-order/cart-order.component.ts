@@ -11,16 +11,18 @@ import { OrderOnlineService } from '../order-online.service';
 export class CartOrderComponent implements OnInit {
   orderList: CartOrder[];
   countItem: number;
+  orderSubTotal: any;
+  orderTotal: any;
+  orderTax: any;
 
   constructor(private orderOnlineService: OrderOnlineService ) { }
 
   ngOnInit(): void {
     this.getCartOrderList();
-    // this.countCartOrderItem();
-    this.orderOnlineService.countOrderItem().subscribe(data => {
-      this.countItem = data;
-      console.log(this.countItem)
-    },error => console.log(error))
+    this.countCartOrderItem();
+    this.getCartOrderSubTotal();
+    this.getOrderTotal();
+    this.getTaxAmount();
   }
 
   private getCartOrderList(){
@@ -33,8 +35,26 @@ export class CartOrderComponent implements OnInit {
   private countCartOrderItem(){
     this.orderOnlineService.countOrderItem().subscribe(data => {
       this.countItem = data;
-      console.log(this.countItem)
     },error => console.log(error))
   }
 
+  private getCartOrderSubTotal(){
+    this.orderOnlineService.calculateSubTotal().subscribe(data => {
+      this.orderSubTotal = data;
+    },error => console.log(error))
+  }
+
+  private getOrderTotal(){
+    this.orderOnlineService.calculateSubTotal().subscribe(data => {
+      this.orderTotal = data+(data * 0.08);
+      console.log(this.orderTotal)
+    },error => console.log(error))
+  }
+
+  private getTaxAmount(){
+    this.orderOnlineService.calculateSubTotal().subscribe(data => {
+      this.orderTax = data * 0.08;
+      console.log(this.orderTax)
+    },error => console.log(error))
+  }
 }

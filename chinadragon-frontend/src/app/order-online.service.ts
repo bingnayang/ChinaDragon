@@ -8,7 +8,8 @@ import { CartOrder } from './cart-order';
 })
 export class OrderOnlineService {
   private baseURL = "http://localhost:8080/api/cart";
-  private baseURL_DETAIL = "http://localhost:8080/api/cart/order-item";
+  private baseURL_COUNT = "http://localhost:8080/api/cart/order-item";
+  private baseURL_SUBTOTAL = "http://localhost:8080/api/cart/order-subtotal";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,6 +22,10 @@ export class OrderOnlineService {
   }
 
   countOrderItem(){
-    return this.httpClient.get<number>(`${this.baseURL_DETAIL}`);
+    return this.httpClient.get<number>(`${this.baseURL_COUNT}`);
+  }
+
+  calculateSubTotal(){
+    return this.httpClient.get<number>(`${this.baseURL_SUBTOTAL}`);
   }
 }
