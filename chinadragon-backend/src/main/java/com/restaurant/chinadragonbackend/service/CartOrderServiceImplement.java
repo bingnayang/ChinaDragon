@@ -44,8 +44,8 @@ public class CartOrderServiceImplement implements CartOrderService {
 
 	@Override
 	@Transactional
-	public boolean findOrderItem(int theCartOrderId) {
-		return cartOrderDAO.findOrderItem(theCartOrderId);
+	public boolean findOrderItem(String theItemName, String theItemSize) {
+		return cartOrderDAO.findOrderItem(theItemName, theItemSize);
 	}
 	
 	
