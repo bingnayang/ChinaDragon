@@ -11,6 +11,7 @@ export class OrderOnlineService {
   private baseURL_COUNT = "http://localhost:8080/api/cart/order-item";
   private baseURL_SUBTOTAL = "http://localhost:8080/api/cart/order-subtotal";
 
+  
   constructor(private httpClient: HttpClient) { }
 
   addToCart(order: CartOrder): Observable<Object>{
@@ -27,5 +28,9 @@ export class OrderOnlineService {
 
   calculateSubTotal(){
     return this.httpClient.get<number>(`${this.baseURL_SUBTOTAL}`);
+  }
+
+  checkItem(name: string, size: string){
+    return this.httpClient.get<boolean>(`${this.baseURL}/${name}/${size}`);
   }
 }

@@ -12,6 +12,7 @@ import { OrderOnlineService } from '../order-online.service';
 export class OrderOnlineComponent implements OnInit {
   menuItems: Menu[];
   order: CartOrder = new CartOrder();
+  checkItemInCart: boolean;
 
   constructor(private menuService: MenuService, private orderOnlineService: OrderOnlineService) { }
 
@@ -19,30 +20,43 @@ export class OrderOnlineComponent implements OnInit {
     this.getMenuList();
   }
 
-  private getMenuList(){
+  private getMenuList() {
     this.menuService.getMenuList().subscribe(data => {
       this.menuItems = data;
       console.log(this.menuItems);
-    },error => console.log(error));
+    }, error => console.log(error));
   }
 
-  addToCart(sectionName: string, name: string, size: string, price: number){
+  addToCart(sectionName: string, name: string, size: string, price: number) {
     this.order.section = sectionName;
     this.order.name = name;
     this.order.size = size;
     this.order.price = price;
     this.order.quantity = 1;
 
-    console.log(this.order)
-    this.submitToCart();
-  }
+    this.orderOnlineService.checkItem(name, size).subscribe(data => {
+      this.checkItemInCart = data;
+      console.log(this.checkItemInCart)
 
-  submitToCart(){
-    this.orderOnlineService.addToCart(this.order).subscribe(data => {
-      console.log(data);
+      if (this.checkItemInCart) {
+        console.log("Item in cart,increase quantity")
+      } else {
+        this.submitToCart();
+        console.log("Item add to cart")
+      }
     })
   }
 
+  submitToCart() {
+    this.orderOnlineService.addToCart(this.order).subscribe(data => {
+    })
+  }
+
+  checkOrderItem(name: string, size: string) {
+    this.orderOnlineService.checkItem(name, size).subscribe(data => {
+      this.checkItemInCart = data;
+    })
+  }
 
 
 }
