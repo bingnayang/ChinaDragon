@@ -41,6 +41,12 @@ public class CartOrderServiceImplement implements CartOrderService {
 	public double calculateOrderTotal() {
 		return cartOrderDAO.calculateOrderTotal();
 	}
+
+	@Override
+	@Transactional
+	public boolean findOrderItem(int theCartOrderId) {
+		return cartOrderDAO.findOrderItem(theCartOrderId);
+	}
 	
 	
 	

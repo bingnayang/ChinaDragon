@@ -61,6 +61,20 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		Double orderSubTotal = (Double)theQuery.uniqueResult();
 		return orderSubTotal;
 	}
-	
+
+	@Override
+	public boolean findOrderItem(int theCartOrderId) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		CartOrder theQuery = currentSession.get(CartOrder.class, theCartOrderId);
+		
+		if(theQuery == null) {
+			return false;
+		}else {
+			return true;
+		}
+
+	}
 	
 }

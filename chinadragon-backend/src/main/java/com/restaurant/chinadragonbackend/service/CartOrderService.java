@@ -14,4 +14,6 @@ public interface CartOrderService {
 
 	double calculateOrderTotal();
 
+	boolean findOrderItem(int theCartOrderId);
+
 }
