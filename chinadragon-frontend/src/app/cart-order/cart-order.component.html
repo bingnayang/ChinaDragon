@@ -11,6 +11,7 @@
                         <th scope="col">Size</th>
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Remove</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -18,8 +19,9 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.section }}</td>
                         <td>{{ item.size }}</td>
-                        <td>{{ item.price | currency: 'USD'}}</td>
+                        <td>{{ item.price }}</td>
                         <td>{{ item.quantity }}</td>
+                        <td><button class="btn btn-sm" (click)="deleteOrderItem(item.id)">X</button></td>
                     </tr>
                     </tbody>
                 </table>

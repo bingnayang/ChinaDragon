@@ -57,4 +57,11 @@ export class CartOrderComponent implements OnInit {
       console.log(this.orderTax)
     },error => console.log(error))
   }
+
+  deleteOrderItem(id: number){
+    console.log(id)
+    this.orderOnlineService.deleteItem(id).subscribe(data => {
+      this.ngOnInit();
+    });
+  }
 }
