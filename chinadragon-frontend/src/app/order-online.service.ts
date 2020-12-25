@@ -37,7 +37,8 @@ export class OrderOnlineService {
     return this.httpClient.get<CartOrder>(`${this.baseURL}/${id}`);
   }
 
-  updateItemQuantity(item: CartOrder): Observable<Object>{
+  increaseItemQuantity(item: CartOrder): Observable<Object>{
+    item.quantity++;
     return this.httpClient.put(`${this.baseURL}`, item);
   }
 

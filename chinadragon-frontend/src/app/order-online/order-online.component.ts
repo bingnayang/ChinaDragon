@@ -60,8 +60,7 @@ export class OrderOnlineComponent implements OnInit {
   updateOrderItemQuantity(itemId: number){
     this.orderOnlineService.getItemById(itemId).subscribe(data => {
       this.item = data;
-      this.item.quantity++;
-      this.orderOnlineService.updateItemQuantity(this.item).subscribe(data => {
+      this.orderOnlineService.increaseItemQuantity(this.item).subscribe(data => {
       }, error => console.log(error))
     }, error => console.log(error))
   }

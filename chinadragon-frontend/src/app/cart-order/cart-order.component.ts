@@ -11,6 +11,7 @@ import { OrderOnlineService } from '../order-online.service';
 })
 export class CartOrderComponent implements OnInit {
   orderList: CartOrder[];
+  item: CartOrder = new CartOrder();
   countItem: number;
   orderSubTotal: any;
   orderTotal: any;
@@ -65,5 +66,16 @@ export class CartOrderComponent implements OnInit {
     this.orderOnlineService.deleteItem(id).subscribe(data => {
       this.ngOnInit();
     });
+  }
+
+  increaseQuantity(id: number){
+    this.orderOnlineService.getItemById(id).subscribe(data => {
+      this.item = data;
+      console.log("increase quantity")
+      console.log(this.item)
+      this.orderOnlineService.increaseItemQuantity(this.item).subscribe(data =>{
+        this.ngOnInit();
+      })
+    })
   }
 }
