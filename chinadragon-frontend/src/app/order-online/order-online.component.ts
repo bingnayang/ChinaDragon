@@ -12,6 +12,7 @@ import { OrderOnlineService } from '../order-online.service';
 export class OrderOnlineComponent implements OnInit {
   menuItems: Menu[];
   order: CartOrder = new CartOrder();
+  item: CartOrder = new CartOrder();
   checkItemId: number;
 
   constructor(private menuService: MenuService, private orderOnlineService: OrderOnlineService) { }
@@ -36,9 +37,10 @@ export class OrderOnlineComponent implements OnInit {
 
     this.orderOnlineService.checkItem(name, size).subscribe(data => {
       this.checkItemId = data;
-      console.log(this.checkItemId)
+
       if (this.checkItemId != -1) {
         console.log("Item in cart,increase quantity")
+        this.updateOrderItemQuantity(this.checkItemId);
 
       } else {
         this.submitToCart();
@@ -53,8 +55,14 @@ export class OrderOnlineComponent implements OnInit {
     })
   }
 
-  increaseQuantity(itemId: number){
-
+  updateOrderItemQuantity(itemId: number){
+    this.orderOnlineService.getItemById(itemId).subscribe(data => {
+      this.item = data;
+      this.item.quantity++;
+      this.orderOnlineService.updateItemQuantity(this.item).subscribe(data => {
+      }, error => console.log(error))
+    }, error => console.log(error))
   }
+
 
 }

@@ -33,4 +33,12 @@ export class OrderOnlineService {
   checkItem(name: string, size: string){
     return this.httpClient.get<number>(`${this.baseURL}/${name}/${size}`);
   }
+
+  getItemById(id: number): Observable<CartOrder>{
+    return this.httpClient.get<CartOrder>(`${this.baseURL}/${id}`);
+  }
+
+  updateItemQuantity(item: CartOrder): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}`, item);
+  }
 }
