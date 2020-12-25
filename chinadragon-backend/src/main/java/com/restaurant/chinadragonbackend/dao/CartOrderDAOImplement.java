@@ -57,7 +57,7 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 	public double calculateOrderTotal() {
 		Session currentSession = entityManager.unwrap(Session.class);
 
-		Query theQuery = currentSession.createQuery("SELECT sum(price) from CartOrder", Double.class);
+		Query theQuery = currentSession.createQuery("SELECT sum(price * quantity) from CartOrder", Double.class);
 		Double orderSubTotal = (Double)theQuery.uniqueResult();
 		return orderSubTotal;
 	}
