@@ -41,6 +41,10 @@ export class OrderOnlineService {
     item.quantity++;
     return this.httpClient.put(`${this.baseURL}`, item);
   }
+  decreaseItemQuantity(item: CartOrder): Observable<Object>{
+    item.quantity--;
+    return this.httpClient.put(`${this.baseURL}`, item);
+  }
 
   deleteItem(id: number){
     return this.httpClient.delete(`${this.baseURL}/${id}`);
