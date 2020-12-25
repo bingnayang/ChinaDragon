@@ -20,8 +20,12 @@
                         <td>{{ item.section }}</td>
                         <td>{{ item.size }}</td>
                         <td>{{ item.price }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td><button class="btn btn-sm" (click)="deleteOrderItem(item.id)"><i class="fa fa-times"></i></button></td>
+                        <td>
+                            <button class="btn btn-sm"><i class="fa fa-plus-square fa-lg"></i></button>
+                            {{ item.quantity }} 
+                            <button class="btn btn-sm"><i class="fa fa-minus-square fa-lg"></i></button>
+                        </td>
+                        <td><button class="btn btn-sm" (click)="deleteOrderItem(item.id)"><i class="fa fa-times fa-lg"></i></button></td>
                     </tr>
                     </tbody>
                 </table>
