@@ -12,7 +12,7 @@ import { OrderOnlineService } from '../order-online.service';
 export class OrderOnlineComponent implements OnInit {
   menuItems: Menu[];
   order: CartOrder = new CartOrder();
-  checkItemInCart: boolean;
+  checkItemId: number;
 
   constructor(private menuService: MenuService, private orderOnlineService: OrderOnlineService) { }
 
@@ -35,14 +35,15 @@ export class OrderOnlineComponent implements OnInit {
     this.order.quantity = 1;
 
     this.orderOnlineService.checkItem(name, size).subscribe(data => {
-      this.checkItemInCart = data;
-      console.log(this.checkItemInCart)
-
-      if (this.checkItemInCart) {
+      this.checkItemId = data;
+      console.log(this.checkItemId)
+      if (this.checkItemId != -1) {
         console.log("Item in cart,increase quantity")
+
       } else {
         this.submitToCart();
         console.log("Item add to cart")
+
       }
     })
   }
@@ -52,11 +53,8 @@ export class OrderOnlineComponent implements OnInit {
     })
   }
 
-  checkOrderItem(name: string, size: string) {
-    this.orderOnlineService.checkItem(name, size).subscribe(data => {
-      this.checkItemInCart = data;
-    })
-  }
+  increaseQuantity(itemId: number){
 
+  }
 
 }

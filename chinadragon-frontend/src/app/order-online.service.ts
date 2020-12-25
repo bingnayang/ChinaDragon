@@ -31,6 +31,6 @@ export class OrderOnlineService {
   }
 
   checkItem(name: string, size: string){
-    return this.httpClient.get<boolean>(`${this.baseURL}/${name}/${size}`);
+    return this.httpClient.get<number>(`${this.baseURL}/${name}/${size}`);
   }
 }
