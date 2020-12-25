@@ -16,4 +16,6 @@ public interface CartOrderDAO {
 
 	int findOrderItem(String theItemName, String theItemSize);
 
+	CartOrder findItemById(int itemId);
+
 }

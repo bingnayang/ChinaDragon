@@ -16,4 +16,6 @@ public interface CartOrderService {
 
 	int findOrderItem(String theItemName, String theItemSize);
 
+	CartOrder findItemById(int itemId);
+
 }

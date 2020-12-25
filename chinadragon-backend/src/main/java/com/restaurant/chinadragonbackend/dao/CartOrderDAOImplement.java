@@ -76,5 +76,16 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		return result;
 
 	}
+
+	@Override
+	public CartOrder findItemById(int itemId) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		CartOrder theCartOrderItem = currentSession.get(CartOrder.class, itemId);
+		
+		// Return the result
+		return theCartOrderItem;
+	}
 	
 }

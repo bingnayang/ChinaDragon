@@ -47,6 +47,12 @@ public class CartOrderServiceImplement implements CartOrderService {
 	public int findOrderItem(String theItemName, String theItemSize) {
 		return cartOrderDAO.findOrderItem(theItemName, theItemSize);
 	}
+
+	@Override
+	@Transactional
+	public CartOrder findItemById(int itemId) {
+		return cartOrderDAO.findItemById(itemId);
+	}
 	
 	
 	

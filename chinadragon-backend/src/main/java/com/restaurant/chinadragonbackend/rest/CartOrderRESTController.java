@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,4 +56,22 @@ public class CartOrderRESTController {
 	public double getCartOrderTotal(){
 		return cartOrderService.calculateOrderTotal();
 	}
+	
+	@PutMapping("/cart")
+	public CartOrder updateOrderItem(@RequestBody CartOrder theCartOrder) {
+		cartOrderService.save(theCartOrder);
+		return theCartOrder;
+	}
+	
+	@GetMapping("/cart/{itemId}")
+	public CartOrder getOrderItemById(@PathVariable int itemId) {
+		CartOrder theCartOrder = cartOrderService.findItemById(itemId);
+		
+		if(theCartOrder == null) {
+			throw new RuntimeException("Cart Order item Id not found - "+itemId);
+		}
+		
+		return theCartOrder;
+	}
+	
 }
