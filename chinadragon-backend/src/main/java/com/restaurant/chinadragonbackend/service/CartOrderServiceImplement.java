@@ -53,6 +53,12 @@ public class CartOrderServiceImplement implements CartOrderService {
 	public CartOrder findItemById(int itemId) {
 		return cartOrderDAO.findItemById(itemId);
 	}
+
+	@Override
+	@Transactional
+	public void deleteItem(int itemId) {
+		cartOrderDAO.deleteItem(itemId);
+	}
 	
 	
 	

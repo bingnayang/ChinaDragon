@@ -18,4 +18,6 @@ public interface CartOrderService {
 
 	CartOrder findItemById(int itemId);
 
+	void deleteItem(int itemId);
+
 }

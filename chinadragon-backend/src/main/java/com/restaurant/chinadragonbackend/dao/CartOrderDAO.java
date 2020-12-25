@@ -18,4 +18,6 @@ public interface CartOrderDAO {
 
 	CartOrder findItemById(int itemId);
 
+	void deleteItem(int itemId);
+
 }

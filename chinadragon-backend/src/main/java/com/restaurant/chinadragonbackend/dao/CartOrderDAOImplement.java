@@ -87,5 +87,17 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		// Return the result
 		return theCartOrderItem;
 	}
+
+	@Override
+	public void deleteItem(int itemId) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Delete object with id
+		Query theQuery = currentSession.createQuery("delete from CartOrder where id=:itemId");
+		theQuery.setParameter("itemId",itemId);
+		theQuery.executeUpdate();
+		
+	}
 	
 }
