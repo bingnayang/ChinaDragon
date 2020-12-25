@@ -3,6 +3,7 @@ import { Menu } from '../menu';
 import { MenuService } from '../menu.service';
 import { CartOrder } from '../cart-order';
 import { OrderOnlineService } from '../order-online.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-order-online',
@@ -15,10 +16,11 @@ export class OrderOnlineComponent implements OnInit {
   item: CartOrder = new CartOrder();
   checkItemId: number;
 
-  constructor(private menuService: MenuService, private orderOnlineService: OrderOnlineService) { }
+  constructor(private menuService: MenuService, private orderOnlineService: OrderOnlineService, private header: AppComponent) { }
 
   ngOnInit(): void {
     this.getMenuList();
+    this.header.ngOnInit();
   }
 
   private getMenuList() {
@@ -41,11 +43,11 @@ export class OrderOnlineComponent implements OnInit {
       if (this.checkItemId != -1) {
         console.log("Item in cart,increase quantity")
         this.updateOrderItemQuantity(this.checkItemId);
-
+        this.ngOnInit();
       } else {
         this.submitToCart();
+        this.ngOnInit();
         console.log("Item add to cart")
-
       }
     })
   }

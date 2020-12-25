@@ -9,7 +9,7 @@ import { OrderOnlineService } from '../app/order-online.service';
 export class AppComponent implements OnInit{
   title = 'chinadragon-frontend';
   countItem: number;
-  
+
   constructor(private orderOnlineService: OrderOnlineService ) { }
 
   ngOnInit(): void {

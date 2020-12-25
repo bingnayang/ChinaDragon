@@ -10,7 +10,6 @@ export class OrderOnlineService {
   private baseURL = "http://localhost:8080/api/cart";
   private baseURL_COUNT = "http://localhost:8080/api/cart/order-item";
   private baseURL_SUBTOTAL = "http://localhost:8080/api/cart/order-subtotal";
-
   
   constructor(private httpClient: HttpClient) { }
 
