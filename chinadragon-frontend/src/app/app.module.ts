@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { OrderOnlineComponent } from './order-online/order-online.component';
 import { CartOrderComponent } from './cart-order/cart-order.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CartOrderComponent } from './cart-order/cart-order.component';
     HomeComponent,
     MenuComponent,
     OrderOnlineComponent,
-    CartOrderComponent
+    CartOrderComponent,
+    CheckOutComponent
   ],
   imports: [
     BrowserModule,
