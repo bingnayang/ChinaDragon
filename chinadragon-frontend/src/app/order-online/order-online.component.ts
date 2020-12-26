@@ -43,10 +43,9 @@ export class OrderOnlineComponent implements OnInit {
       if (this.checkItemId != -1) {
         console.log("Item in cart,increase quantity")
         this.updateOrderItemQuantity(this.checkItemId);
-        this.ngOnInit();
+
       } else {
         this.submitToCart();
-        this.ngOnInit();
         console.log("Item add to cart")
       }
     })
@@ -54,6 +53,7 @@ export class OrderOnlineComponent implements OnInit {
 
   submitToCart() {
     this.orderOnlineService.addToCart(this.order).subscribe(data => {
+      this.ngOnInit();
     })
   }
 
@@ -61,6 +61,7 @@ export class OrderOnlineComponent implements OnInit {
     this.orderOnlineService.getItemById(itemId).subscribe(data => {
       this.item = data;
       this.orderOnlineService.increaseItemQuantity(this.item).subscribe(data => {
+        this.ngOnInit();
       }, error => console.log(error))
     }, error => console.log(error))
   }

@@ -19,7 +19,7 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.section }}</td>
                         <td>{{ item.size }}</td>
-                        <td>{{ item.price }}</td>
+                        <td>{{ item.price | currency}}</td>
                         <td>
                             <button class="btn btn-sm" (click)="increaseQuantity(item.id)"><i class="fa fa-plus-square fa-lg"></i></button>
                             {{ item.quantity }} 
