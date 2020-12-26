@@ -82,11 +82,14 @@ export class CartOrderComponent implements OnInit {
   decreaseQuantity(id: number){
     this.orderOnlineService.getItemById(id).subscribe(data => {
       this.item = data;
-      console.log("decrease quantity")
-      console.log(this.item)
-      this.orderOnlineService.decreaseItemQuantity(this.item).subscribe(data =>{
-        this.ngOnInit();
-      })
+
+      if(this.item.quantity == 1){
+        this.deleteOrderItem(id);
+      }else{
+        this.orderOnlineService.decreaseItemQuantity(this.item).subscribe(data =>{
+          this.ngOnInit();
+        })
+      }
     })
   }
 }
