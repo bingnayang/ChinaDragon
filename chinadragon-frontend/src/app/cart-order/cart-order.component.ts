@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { CartOrder } from '../cart-order';
 import { OrderOnlineService } from '../order-online.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-order',
@@ -17,7 +17,7 @@ export class CartOrderComponent implements OnInit {
   orderTotal: any;
   orderTax: any;
 
-  constructor(private orderOnlineService: OrderOnlineService, private header: AppComponent ) { }
+  constructor(private orderOnlineService: OrderOnlineService, private header: AppComponent, private router: Router ) { }
 
   ngOnInit(): void {
     this.getCartOrderList();
@@ -91,5 +91,9 @@ export class CartOrderComponent implements OnInit {
         })
       }
     })
+  }
+
+  checkOut(){
+    this.router.navigate(['check-out']);
   }
 }
