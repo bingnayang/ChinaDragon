@@ -1,0 +1,116 @@
+package com.restaurant.chinadragonbackend.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="submit_order")
+public class SubmitOrder {
+	
+	// Define Fields
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="name")
+	private String name;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="phone")
+	private String phone;
+	
+	@Column(name="pickup")
+	private String pickup;
+	
+	@Column(name="subtotal")
+	private double subtotal;
+	
+	@Column(name="tax")
+	private double tax;
+	
+	@Column(name="total")
+	private double total;
+	
+	public SubmitOrder() {}
+
+	public SubmitOrder(String name, String email, String phone, String pickup, double subtotal, double tax, double total) {
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.pickup = pickup;
+		this.subtotal = subtotal;
+		this.tax = tax;
+		this.total = total;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getPickup() {
+		return pickup;
+	}
+
+	public void setPickup(String pickup) {
+		this.pickup = pickup;
+	}
+
+	public double getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(double subtotal) {
+		this.subtotal = subtotal;
+	}
+
+	public double getTax() {
+		return tax;
+	}
+
+	public void setTax(double tax) {
+		this.tax = tax;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+}
