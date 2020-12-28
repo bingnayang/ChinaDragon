@@ -1,16 +1,10 @@
 package com.restaurant.chinadragonbackend.entity;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -95,4 +89,11 @@ public class OrderItem {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		return "OrderItem [name=" + name + ", section=" + section + ", size=" + size + ", quantity=" + quantity
+				+ ", price=" + price + "]";
+	}
+	
 }

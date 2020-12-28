@@ -1,5 +1,6 @@
 package com.restaurant.chinadragonbackend.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -46,7 +47,7 @@ public class SubmitOrder {
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="order_id")
-	private List<OrderItem> orderItem;
+	private List<OrderItem> items;
 	
 	public SubmitOrder() {}
 
@@ -125,11 +126,17 @@ public class SubmitOrder {
 	}
 
 	public List<OrderItem> getOrderItem() {
-		return orderItem;
+		return items;
 	}
 
 	public void setOrderItem(List<OrderItem> orderItem) {
-		this.orderItem = orderItem;
+		this.items = orderItem;
+	}
+
+	@Override
+	public String toString() {
+		return "SubmitOrder [name=" + name + ", email=" + email + ", phone=" + phone + ", pickup=" + pickup
+				+ ", subtotal=" + subtotal + ", tax=" + tax + ", total=" + total + ", items=" + items + "]";
 	}
 
 }
