@@ -24,8 +24,6 @@ public class SubmitOrderRESTController {
 	
 	@PostMapping("/submit")
 	public SubmitOrder saveOrder(@RequestBody SubmitOrder theSubmitOrder) {
-		System.out.println(theSubmitOrder.toString());
-		
 		theSubmitOrder.setId(0);
 		submitOrderService.save(theSubmitOrder);
 		return theSubmitOrder;

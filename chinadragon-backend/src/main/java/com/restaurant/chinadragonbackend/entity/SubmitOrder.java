@@ -47,7 +47,7 @@ public class SubmitOrder {
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="order_id")
-	private List<OrderItem> items;
+	private List<OrderItem> orderItem;
 	
 	public SubmitOrder() {}
 
@@ -126,17 +126,17 @@ public class SubmitOrder {
 	}
 
 	public List<OrderItem> getOrderItem() {
-		return items;
+		return orderItem;
 	}
 
 	public void setOrderItem(List<OrderItem> orderItem) {
-		this.items = orderItem;
+		this.orderItem = orderItem;
 	}
 
 	@Override
 	public String toString() {
 		return "SubmitOrder [name=" + name + ", email=" + email + ", phone=" + phone + ", pickup=" + pickup
-				+ ", subtotal=" + subtotal + ", tax=" + tax + ", total=" + total + ", items=" + items + "]";
+				+ ", subtotal=" + subtotal + ", tax=" + tax + ", total=" + total + ", items=" + orderItem + "]";
 	}
 
 }

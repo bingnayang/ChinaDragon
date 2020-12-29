@@ -20,8 +20,8 @@ public class SubmitOrderDAOImplement implements SubmitOrderDAO {
 	public void save(SubmitOrder theSubmitOrder) {
 		// Get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
-		// Save rates
-		currentSession.saveOrUpdate(theSubmitOrder);
+
+		currentSession.save(theSubmitOrder);
 	}
 
 }
