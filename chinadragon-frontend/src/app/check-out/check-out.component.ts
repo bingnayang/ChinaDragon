@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderOnlineService } from '../order-online.service';
 import { CartOrder } from '../cart-order';
+import { Router } from '@angular/router';
+import { SubmitOrder } from '../submit-order';
+import { SubmitOrderService } from '../submit-order.service';
 
 @Component({
   selector: 'app-check-out',
@@ -9,17 +12,40 @@ import { CartOrder } from '../cart-order';
 })
 export class CheckOutComponent implements OnInit {
   orderItemList: CartOrder[];
+  orderDetail: SubmitOrder = new SubmitOrder();
   orderSubTotal: any;
   orderTotal: any;
   orderTax: any;
 
-  constructor(private orderOnlineService: OrderOnlineService) { }
+  constructor(private orderOnlineService: OrderOnlineService,private submitOrderService: SubmitOrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCartOrderList();
     this.getCartOrderSubTotal();
     this.getTaxAmount();
     this.getOrderTotal();
+  }
+
+  backToCart(){
+    this.router.navigate(['cart']);
+  }
+
+  onSubmit(){
+    this.orderDetail.subtotal = this.orderSubTotal;
+    this.orderDetail.tax = this.orderTax;
+    this.orderDetail.total = this.orderTotal;
+    this.orderDetail.pickup = "ASAP";
+    // Remove the id
+    this.orderItemList.forEach(u => delete u.id);
+
+    this.orderDetail.orderItem = this.orderItemList;
+    this.submitOrder();
+  }
+
+  private submitOrder(){
+    this.submitOrderService.submitOrder(this.orderDetail).subscribe(data => {
+
+    })
   }
 
   private getCartOrderList(){
