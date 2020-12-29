@@ -7,13 +7,18 @@ import { SubmitOrder } from './submit-order';
   providedIn: 'root'
 })
 export class SubmitOrderService {
+  submitedOrderId: number;
+
   private baseURL = "http://localhost:8080/api/submit";
+
 
   constructor(private httpClient: HttpClient) { }
 
-  submitOrder(order: SubmitOrder): Observable<Object>{
-    console.log("Submit Order")
-    console.log(order);
+  submitOrder(order: SubmitOrder): Observable<any>{
     return this.httpClient.post(`${this.baseURL}`,order);
+  }
+
+  getSubmitOrderById(id: number): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/${id}`);
   }
 }
