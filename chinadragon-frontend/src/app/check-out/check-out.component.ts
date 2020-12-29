@@ -44,8 +44,8 @@ export class CheckOutComponent implements OnInit {
 
   private submitOrder(){
     this.submitOrderService.submitOrder(this.orderDetail).subscribe(data => {
-
-    })
+      this.router.navigate(['comfirmation']);
+    });
   }
 
   private getCartOrderList(){

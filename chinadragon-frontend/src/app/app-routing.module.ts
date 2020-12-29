@@ -5,6 +5,7 @@ import { MenuComponent } from './menu/menu.component';
 import { OrderOnlineComponent } from './order-online/order-online.component';
 import { CartOrderComponent } from '../app/cart-order/cart-order.component';
 import { CheckOutComponent } from '../app/check-out/check-out.component';
+import { ConfirmationPageComponent } from '../app/confirmation-page/confirmation-page.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'order-online', component: OrderOnlineComponent},
   {path: 'cart', component: CartOrderComponent},
   {path: 'check-out', component: CheckOutComponent},
+  {path: 'comfirmation', component: ConfirmationPageComponent},
   {path: '',redirectTo: 'home', pathMatch:'full'}
 ];
 
