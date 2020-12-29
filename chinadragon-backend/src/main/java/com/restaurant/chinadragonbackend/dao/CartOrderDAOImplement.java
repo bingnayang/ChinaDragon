@@ -50,6 +50,9 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 
 		Query theQuery = currentSession.createQuery("SELECT sum(quantity) from CartOrder", Long.class);
 		Long itemCount = (Long)theQuery.uniqueResult();
+		if(itemCount == null) {
+			return 0;
+		}
 		return itemCount;
 	}
 
