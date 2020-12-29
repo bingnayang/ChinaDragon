@@ -1,9 +1,13 @@
+import { CartOrder } from './cart-order';
+
 export class SubmitOrder {
     name: string;
     email: string;
     phone: string;
     pickup: string;
-    subTotal: any;
+    subtotal: any;
     tax: any;
     total: any;
+    orderItem: CartOrder[];
 }
+

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-9">
             <div class="container">
-                <a><i class="fa fa-arrow-left"></i> Back to Cart</a>
+                <a (click)="backToCart()"><i class="fa fa-arrow-left"></i> Back to Cart</a>
             </div>
         </div>
     </div>
@@ -15,8 +15,8 @@
                         <p>ASAP 21 - 30 mins</p>
                         <p>Schedule for Later</p>
                     </div>
-                  </div>
-                  <hr>
+                </div>
+                <hr>
             </div>
 
             <div class="container">
@@ -25,8 +25,8 @@
                     <div class="col-sm-9">
                         <p>Pay in Restaurant</p>
                     </div>
-                  </div>
-                  <hr>
+                </div>
+                <hr>
             </div>
             <div class="container">
                 <div class="row">
@@ -35,24 +35,52 @@
                         <div *ngFor="let item of orderItemList">
                             <div class="row">
                                 <div class="col-1">{{ item.quantity }}</div>
-                                <div class="col-5">{{ item.name }} 
+                                <div class="col-5">{{ item.name }}
                                     <span *ngIf="item.size !== 'None'">({{ item.size }})</span>
                                 </div>
                                 <div class="col text-right">{{ item.price | currency}}</div>
                             </div>
                         </div>
                     </div>
-                  </div>
+                </div>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">CONTACT INFO</div>
+                    <div class="col-sm-9">
+                        <form (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="orderDetail.name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email1">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="orderDetail.email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" id="phone" placeholder="Phone" [(ngModel)]="orderDetail.phone" name="phone">
+                            </div>
+                            <button type="submit" class="btn btn-dark btn-block">Place Order</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col">
-            <ul class="list-group">
-                <li class="list-group-item text-center"><h4>China Dragon</h4></li>
-                <li class="list-group-item">Subtotal: {{ orderSubTotal | currency }}</li>
-                <li class="list-group-item">Taxes:{{ orderTax | currency }}</li>
-                <li class="list-group-item">Total: {{ orderTotal | currency }}</li>
-                <li class="list-group-item"><button class="btn btn-block btn-dark">Place Order</button></li>
-              </ul>
+            <div class="row">
+                <div class="col-9">
+                    <ul class="list-group">
+                        <li class="list-group-item text-center">
+                            <h4>China Dragon</h4>
+                        </li>
+                        <li class="list-group-item">Subtotal: {{ orderSubTotal | currency }}</li>
+                        <li class="list-group-item">Taxes:{{ orderTax | currency }}</li>
+                        <li class="list-group-item">Total: {{ orderTotal | currency }}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
