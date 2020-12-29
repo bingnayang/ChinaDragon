@@ -16,6 +16,8 @@ export class CheckOutComponent implements OnInit {
   orderSubTotal: any;
   orderTotal: any;
   orderTax: any;
+  insertId: number;
+
 
   constructor(private orderOnlineService: OrderOnlineService,private submitOrderService: SubmitOrderService, private router: Router) { }
 
@@ -44,6 +46,7 @@ export class CheckOutComponent implements OnInit {
 
   private submitOrder(){
     this.submitOrderService.submitOrder(this.orderDetail).subscribe(data => {
+      this.submitOrderService.submitedOrderId = data;
       this.router.navigate(['comfirmation']);
     });
   }
