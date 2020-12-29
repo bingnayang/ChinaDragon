@@ -1,9 +1,11 @@
 package com.restaurant.chinadragonbackend.service;
 
+import java.util.List;
+
 import com.restaurant.chinadragonbackend.entity.SubmitOrder;
 
 public interface SubmitOrderService {
 
-	void save(SubmitOrder theSubmitOrder);
+	int save(SubmitOrder theSubmitOrder);
 
 }

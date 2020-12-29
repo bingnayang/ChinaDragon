@@ -1,9 +1,11 @@
 package com.restaurant.chinadragonbackend.dao;
 
+import java.util.List;
+
 import com.restaurant.chinadragonbackend.entity.SubmitOrder;
 
 public interface SubmitOrderDAO {
 
-	void save(SubmitOrder theSubmitOrder);
+	int save(SubmitOrder theSubmitOrder);
 
 }

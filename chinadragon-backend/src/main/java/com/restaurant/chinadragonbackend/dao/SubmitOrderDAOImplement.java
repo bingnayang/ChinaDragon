@@ -1,5 +1,7 @@
 package com.restaurant.chinadragonbackend.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
@@ -17,12 +19,11 @@ public class SubmitOrderDAOImplement implements SubmitOrderDAO {
 	}
 	
 	@Override
-	public void save(SubmitOrder theSubmitOrder) {
+	public int save(SubmitOrder theSubmitOrder) {
 		// Get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
-		currentSession.save(theSubmitOrder);
-		Query query = currentSession.createQuery("DELETE FROM CartOrder");
-		query.executeUpdate();
+		int id = (Integer)currentSession.save(theSubmitOrder);
+		return id;
 	}
 
 }

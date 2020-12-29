@@ -1,5 +1,7 @@
 package com.restaurant.chinadragonbackend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +20,8 @@ public class SubmitOrderServiceImplement implements SubmitOrderService {
 
 	@Override
 	@Transactional
-	public void save(SubmitOrder theSubmitOrder) {
-		submitOrderDAO.save(theSubmitOrder);
+	public int save(SubmitOrder theSubmitOrder) {
+		return submitOrderDAO.save(theSubmitOrder);
 	}
+
 }
