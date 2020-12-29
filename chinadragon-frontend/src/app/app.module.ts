@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { OrderOnlineComponent } from './order-online/order-online.component';
 import { CartOrderComponent } from './cart-order/cart-order.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
     MenuComponent,
     OrderOnlineComponent,
     CartOrderComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    ConfirmationPageComponent
   ],
   imports: [
     BrowserModule,
