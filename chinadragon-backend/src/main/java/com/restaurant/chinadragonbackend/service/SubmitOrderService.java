@@ -8,4 +8,6 @@ public interface SubmitOrderService {
 
 	int save(SubmitOrder theSubmitOrder);
 
+	SubmitOrder findSubmitOrder(int orderId);
+
 }

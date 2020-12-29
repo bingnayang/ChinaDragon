@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.hibernate.query.Query;
+
+import com.restaurant.chinadragonbackend.entity.CartOrder;
 import com.restaurant.chinadragonbackend.entity.SubmitOrder;
 
 @Repository
@@ -24,6 +26,17 @@ public class SubmitOrderDAOImplement implements SubmitOrderDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		int id = (Integer)currentSession.save(theSubmitOrder);
 		return id;
+	}
+
+	@Override
+	public SubmitOrder findSubmitOrder(int orderId) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		SubmitOrder theSubmitOrder = currentSession.get(SubmitOrder.class, orderId);
+		
+		// Return the result
+		return theSubmitOrder;
 	}
 
 }

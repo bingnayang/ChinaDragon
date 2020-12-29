@@ -24,4 +24,9 @@ public class SubmitOrderServiceImplement implements SubmitOrderService {
 		return submitOrderDAO.save(theSubmitOrder);
 	}
 
+	@Override
+	public SubmitOrder findSubmitOrder(int orderId) {
+		return submitOrderDAO.findSubmitOrder(orderId);
+	}
+
 }

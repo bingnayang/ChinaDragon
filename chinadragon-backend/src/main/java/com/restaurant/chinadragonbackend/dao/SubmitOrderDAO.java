@@ -8,4 +8,6 @@ public interface SubmitOrderDAO {
 
 	int save(SubmitOrder theSubmitOrder);
 
+	SubmitOrder findSubmitOrder(int orderId);
+
 }
