@@ -25,8 +25,15 @@ public class SubmitOrderServiceImplement implements SubmitOrderService {
 	}
 
 	@Override
+	@Transactional
 	public SubmitOrder findSubmitOrder(int orderId) {
 		return submitOrderDAO.findSubmitOrder(orderId);
+	}
+
+	@Override
+	@Transactional
+	public void deleteAllCartOrder() {
+		submitOrderDAO.deleteAllCartOrder();
 	}
 
 }
