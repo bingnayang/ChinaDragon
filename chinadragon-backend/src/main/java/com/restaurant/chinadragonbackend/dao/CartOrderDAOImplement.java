@@ -62,6 +62,9 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 
 		Query theQuery = currentSession.createQuery("SELECT sum(price * quantity) from CartOrder", Double.class);
 		Double orderSubTotal = (Double)theQuery.uniqueResult();
+		if( orderSubTotal == null) {
+			return 0;
+		}
 		return orderSubTotal;
 	}
 
