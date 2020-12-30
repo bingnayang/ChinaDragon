@@ -13,9 +13,11 @@ export class ConfirmationPageComponent implements OnInit {
   constructor(private header: AppComponent, private submitOrderService: SubmitOrderService) { }
 
   ngOnInit(): void {
-    this.submitOrderService.cleanCart();
     this.header.ngOnInit();
     this.getSubmitOrderDetail();
+
+    console.log("confirmation page")
+    console.log(this.submitOrderService.submitedOrderId);
   }
 
   private getSubmitOrderDetail(){

@@ -10,6 +10,4 @@ public interface SubmitOrderDAO {
 
 	SubmitOrder findSubmitOrder(int orderId);
 
-	void deleteAllCartOrder();
-
 }

@@ -39,11 +39,4 @@ public class SubmitOrderDAOImplement implements SubmitOrderDAO {
 		return theSubmitOrder;
 	}
 
-	@Override
-	public void deleteAllCartOrder() {
-		Session currentSession = entityManager.unwrap(Session.class);
-		Query cleanTheCart = currentSession.createQuery("DELETE FROM CartOrder");
-		cleanTheCart.executeUpdate();
-	}
-
 }

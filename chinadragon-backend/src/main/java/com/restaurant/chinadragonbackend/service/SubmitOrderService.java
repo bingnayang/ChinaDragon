@@ -10,6 +10,4 @@ public interface SubmitOrderService {
 
 	SubmitOrder findSubmitOrder(int orderId);
 
-	void deleteAllCartOrder();
-
 }
