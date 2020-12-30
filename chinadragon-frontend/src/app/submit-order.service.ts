@@ -21,4 +21,9 @@ export class SubmitOrderService {
   getSubmitOrderById(id: number): Observable<any>{
     return this.httpClient.get(`${this.baseURL}/${id}`);
   }
+
+  cleanCart(){
+    console.log("Execute clean cart")
+    return this.httpClient.delete(`${this.baseURL}`)
+  }
 }

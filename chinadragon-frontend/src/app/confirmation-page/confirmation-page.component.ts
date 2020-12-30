@@ -10,19 +10,20 @@ import { SubmitOrderService } from '../submit-order.service';
 export class ConfirmationPageComponent implements OnInit {
   submitedOrder: SubmitOrder;
 
-  constructor(private header: AppComponent, private submitOrderService: SubmitOrderService) { }
+  constructor(private header: AppComponent, private submitOrderService: SubmitOrderService) {
+  }
 
   ngOnInit(): void {
-    this.header.ngOnInit();
+    this.submitOrderService.cleanCart().subscribe(data => {
+      console.log("Cart Clean")
+    });
     this.getSubmitOrderDetail();
-
-    console.log("confirmation page")
-    console.log(this.submitOrderService.submitedOrderId);
   }
 
   private getSubmitOrderDetail(){
     this.submitOrderService.getSubmitOrderById(this.submitOrderService.submitedOrderId).subscribe(data => {
       this.submitedOrder = data;
+      this.header.ngOnInit();
       console.log(this.submitedOrder);
     },error => console.log(error))
   }
