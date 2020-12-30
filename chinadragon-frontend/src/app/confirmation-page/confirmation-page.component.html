@@ -1,1 +1,62 @@
-<p>confirmation-page works!</p>
+<div class="container" style="padding-top: 3rem;">
+    <div class="container text-center">
+        <h1>Order Confirmation</h1>
+        <h4>Thanks for your order, {{ submitedOrder.name }}</h4>
+        <h4>Order Number: {{ submitedOrder.id }}</h4>
+        <h6>Order Date: Jan 01, 2020 - 1:00 PM</h6>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h5>PICKUP LOCATION INFO</h5></div>
+            <div class="col-sm-9">
+                <h6>Address</h6>
+                <p>2029 Coliseum Blvd., Montgomery, AL 36110</p>
+                <h6>Phone</h6>
+                <p>334 - 213 - 0989</p>
+                <p>334 - 213 - 0991</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h5>PICKUP TIME</h5></div>
+            <div class="col-sm-9">
+                <h6>Date & Time</h6>
+                <p>Jan 01, 2020 Monday - 2:00 PM</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h5>SUMMARY</h5></div>
+            <div class="col-sm-9">
+                <div *ngFor="let item of submitedOrder.orderItem">
+                    <div class="row">
+                        <div class="col-1">{{ item.quantity }}</div>
+                        <div class="col-5">{{ item.name }}
+                            <span *ngIf="item.size !== 'None'">({{ item.size }})</span>
+                        </div>
+                        <div class="col text-right">{{ item.price | currency}}</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">SubTotal:</div>
+                    <div class="col text-right">{{ submitedOrder.subtotal | currency }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Tax:</div>
+                    <div class="col text-right">{{ submitedOrder.tax | currency }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Total:</div>
+                    <div class="col text-right">{{ submitedOrder.total | currency }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

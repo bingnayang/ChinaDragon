@@ -23,7 +23,6 @@ export class SubmitOrderService {
   }
 
   cleanCart(){
-    console.log("Execute clean cart")
     return this.httpClient.delete(`${this.baseURL}`)
   }
 }

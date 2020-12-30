@@ -1,6 +1,7 @@
 import { CartOrder } from './cart-order';
 
 export class SubmitOrder {
+    id: number;
     name: string;
     email: string;
     phone: string;

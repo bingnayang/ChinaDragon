@@ -77,7 +77,6 @@ public class CartOrderDAOImplement implements CartOrderDAO {
 		theQuery.setParameter("name",theItemName);
 		theQuery.setParameter("size",theItemSize);
 		Integer result = (Integer) theQuery.uniqueResult();
-		System.out.println("Id: "+result);
 
 		return result;
 
