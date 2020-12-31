@@ -4,6 +4,7 @@ import { CartOrder } from '../cart-order';
 import { Router } from '@angular/router';
 import { SubmitOrder } from '../submit-order';
 import { SubmitOrderService } from '../submit-order.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-check-out',
@@ -16,8 +17,9 @@ export class CheckOutComponent implements OnInit {
   orderSubTotal: any;
   orderTotal: any;
   orderTax: any;
-  insertId: number;  
-  
+  insertId: number;
+  currentDateTime: any = new Date();
+
   constructor(private orderOnlineService: OrderOnlineService,private submitOrderService: SubmitOrderService, private router: Router) { }
 
   ngOnInit(): void {
@@ -32,10 +34,15 @@ export class CheckOutComponent implements OnInit {
   }
 
   onSubmit(){
+    // this.currentDateTime = new Date();
+
     this.orderDetail.subtotal = this.orderSubTotal;
     this.orderDetail.tax = this.orderTax;
     this.orderDetail.total = this.orderTotal;
     this.orderDetail.pickup = "ASAP";
+    this.orderDetail.date = formatDate(this.currentDateTime, 'yyyy-MM-dd','en-US');
+    this.orderDetail.time = formatDate(this.currentDateTime, 'hh:mm a','en-US');
+
     // Remove the id
     this.orderItemList.forEach(u => delete u.id);
 
