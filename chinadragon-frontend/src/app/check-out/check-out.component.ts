@@ -16,9 +16,8 @@ export class CheckOutComponent implements OnInit {
   orderSubTotal: any;
   orderTotal: any;
   orderTax: any;
-  insertId: number;
-
-
+  insertId: number;  
+  
   constructor(private orderOnlineService: OrderOnlineService,private submitOrderService: SubmitOrderService, private router: Router) { }
 
   ngOnInit(): void {
