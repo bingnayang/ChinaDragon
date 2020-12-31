@@ -4,7 +4,7 @@
             <div class="container">
                 <h4>Shopping Cart</h4>
                 <table class="table">
-                    <thead class="thead-light">
+                    <thead class="text-light"> 
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Category</th>
@@ -32,17 +32,17 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="container-fluid">
-                <div class="card" style="width: 22rem;">
-                    <div class="card-header">
+            <div class="container">
+                <div class="card" style="width: 26rem;">
+                    <div class="card-header text-light">
                       Order Detail
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Item #: {{ countItem }}</li>
-                        <li class="list-group-item">Sub-Total: {{ orderSubTotal | currency: 'USD' }}</li>
-                        <li class="list-group-item">Tax 8%: {{ orderTax | currency }}</li>
-                        <li class="list-group-item">Total: {{ orderTotal | currency: 'USD' }}</li>
-                        <li class="list-group-item"><button class="btn btn-dark btn-block" (click)="checkOut()">Proceed to Checkout</button></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Item #: <span>{{ countItem }}</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Sub-Total: <span>{{ orderSubTotal | currency: 'USD' }}</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Tax 8%: <span>{{ orderTax | currency }}</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Total: <span>{{ orderTotal | currency: 'USD' }}</span></li>
+                        <li class="list-group-item"><button class="btn btn-block checkout text-light" (click)="checkOut()">Proceed to Checkout</button></li>
                     </ul>
                 </div>
             </div>

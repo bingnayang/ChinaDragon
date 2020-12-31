@@ -1,3 +1,9 @@
 .fa-times{
     color: rgb(199, 78, 65);
 }
+.card-header, thead{
+    background-color: #1F3944;
+}
+.checkout{
+    background-color: rgb(42, 222, 179);
+}
