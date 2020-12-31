@@ -45,13 +45,19 @@ public class SubmitOrder {
 	@Column(name="total")
 	private double total;
 	
+	@Column(name="date")
+	private String date;
+	
+	@Column(name="time")
+	private String time;
+	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="order_id")
 	private List<OrderItem> orderItem;
 	
 	public SubmitOrder() {}
 
-	public SubmitOrder(String name, String email, String phone, String pickup, double subtotal, double tax, double total) {
+	public SubmitOrder(String name, String email, String phone, String pickup, double subtotal, double tax, double total, String date, String time) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -59,6 +65,8 @@ public class SubmitOrder {
 		this.subtotal = subtotal;
 		this.tax = tax;
 		this.total = total;
+		this.date = date;
+		this.time = time;
 	}
 
 	public int getId() {
@@ -123,6 +131,22 @@ public class SubmitOrder {
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	public List<OrderItem> getOrderItem() {

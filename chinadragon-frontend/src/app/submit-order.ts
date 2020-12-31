@@ -9,6 +9,8 @@ export class SubmitOrder {
     subtotal: any;
     tax: any;
     total: any;
+    date: any;
+    time: any;
     orderItem: CartOrder[];
 }
 
