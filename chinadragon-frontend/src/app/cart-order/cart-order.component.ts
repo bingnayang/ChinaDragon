@@ -96,4 +96,8 @@ export class CartOrderComponent implements OnInit {
   checkOut(){
     this.router.navigate(['check-out']);
   }
+
+  startOrder(){
+    this.router.navigate(['order-online']);
+  }
 }
