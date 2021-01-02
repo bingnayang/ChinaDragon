@@ -12,8 +12,20 @@
                 <div class="row">
                     <div class="col-sm-3">TIME</div>
                     <div class="col-sm-9">
-                        <p>ASAP 21 - 30 mins</p>
-                        <p>Schedule for Later</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pickuptime" id="pickuptime"
+                                value="option1" checked>
+                            <label class="form-check-label" for="pickuptime">
+                                ASAP 21 - 30 mins
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pickuptime" id="pickuptime"
+                                value="option2">
+                            <label class="form-check-label" for="pickuptime">
+                                Schedule for Later
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <hr>
@@ -52,32 +64,39 @@
                         <form (ngSubmit)="onSubmit()">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="orderDetail.name" name="name" required>
+                                <input type="text" class="form-control" id="name" [(ngModel)]="orderDetail.name"
+                                    name="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email1">Email address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="orderDetail.email" name="email" required>
+                                <input type="email" class="form-control" id="email" [(ngModel)]="orderDetail.email"
+                                    name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone [Format: 123-456-7890]</label>
-                                <input type="tel" pattern="^\d{3}-\d{3}-\d{4}$" class="form-control" id="phone" placeholder="Phone" [(ngModel)]="orderDetail.phone" name="phone" required>
+                                <label for="phone">Phone</label>
+                                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" id="phone"
+                                    [(ngModel)]="orderDetail.phone" name="phone" required>
                             </div>
-                            <button type="submit" class="btn btn-dark btn-block">Place Order</button>
+                            <button type="submit" class="btn btn-dark btn-block place-order">Place Order</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col">
-            <div class="row">
-                <div class="col-9">
-                    <ul class="list-group">
-                        <li class="list-group-item text-center">
-                            <h4>China Dragon</h4>
+            <div class="container">
+                <div class="card" style="width: 26rem;">
+                    <div class="card-header text-light" style="background-color: #1F3944;">
+                        China Dragon
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Sub-Total:
+                            <span>{{ orderSubTotal | currency: 'USD' }}</span>
                         </li>
-                        <li class="list-group-item">Subtotal: {{ orderSubTotal | currency }}</li>
-                        <li class="list-group-item">Taxes:{{ orderTax | currency }}</li>
-                        <li class="list-group-item">Total: {{ orderTotal | currency }}</li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Tax 8%: <span>{{
+                                orderTax | currency }}</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Total: <span>{{
+                                orderTotal | currency: 'USD' }}</span></li>
                     </ul>
                 </div>
             </div>
