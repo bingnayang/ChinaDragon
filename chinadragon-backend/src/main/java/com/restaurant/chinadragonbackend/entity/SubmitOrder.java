@@ -51,13 +51,16 @@ public class SubmitOrder {
 	@Column(name="time")
 	private String time;
 	
+	@Column(name="status")
+	private String status;
+	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="order_id")
 	private List<OrderItem> orderItem;
 	
 	public SubmitOrder() {}
 
-	public SubmitOrder(String name, String email, String phone, String pickup, double subtotal, double tax, double total, String date, String time) {
+	public SubmitOrder(String name, String email, String phone, String pickup, double subtotal, double tax, double total, String date, String time, String status) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -67,6 +70,7 @@ public class SubmitOrder {
 		this.total = total;
 		this.date = date;
 		this.time = time;
+		this.status = status;
 	}
 
 	public int getId() {
@@ -148,6 +152,14 @@ public class SubmitOrder {
 	public void setTime(String time) {
 		this.time = time;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public List<OrderItem> getOrderItem() {
 		return orderItem;
@@ -159,8 +171,9 @@ public class SubmitOrder {
 
 	@Override
 	public String toString() {
-		return "SubmitOrder [name=" + name + ", email=" + email + ", phone=" + phone + ", pickup=" + pickup
-				+ ", subtotal=" + subtotal + ", tax=" + tax + ", total=" + total + ", items=" + orderItem + "]";
+		return "SubmitOrder [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", pickup="
+				+ pickup + ", subtotal=" + subtotal + ", tax=" + tax + ", total=" + total + ", date=" + date + ", time="
+				+ time + ", status=" + status + ", orderItem=" + orderItem + "]";
 	}
 
 }
