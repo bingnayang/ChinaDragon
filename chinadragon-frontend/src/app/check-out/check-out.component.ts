@@ -40,6 +40,7 @@ export class CheckOutComponent implements OnInit {
     this.orderDetail.tax = this.orderTax;
     this.orderDetail.total = this.orderTotal;
     this.orderDetail.pickup = "ASAP";
+    this.orderDetail.status = "Active"
     this.orderDetail.date = formatDate(this.currentDateTime, 'yyyy-MM-dd','en-US');
     this.orderDetail.time = formatDate(this.currentDateTime, 'hh:mm a','en-US');
 

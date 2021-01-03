@@ -11,6 +11,7 @@ export class SubmitOrder {
     total: any;
     date: any;
     time: any;
+    status: string;
     orderItem: CartOrder[];
 }
 
