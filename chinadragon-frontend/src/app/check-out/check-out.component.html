@@ -13,18 +13,19 @@
                     <div class="col-sm-3">TIME</div>
                     <div class="col-sm-9">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pickuptime" id="pickuptime"
-                                value="option1" checked>
+                            <input input class="form-check-input" type="radio" [(ngModel)]="pickUpOption" name="asap" value="asap" [checked]="true" (change)="onItemChange($event.target.value)">
                             <label class="form-check-label" for="pickuptime">
-                                ASAP 21 - 30 mins
+                                ASAP 20 - 30 mins
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pickuptime" id="pickuptime"
-                                value="option2">
+                            <input input class="form-check-input" type="radio" [(ngModel)]="pickUpOption" name="select-time" value="select-time" (change)="onItemChange($event.target.value)">
                             <label class="form-check-label" for="pickuptime">
                                 Schedule for Later
                             </label>
+                        </div>
+                        <div *ngIf="pickUpSelect">
+                            <input type="time" id="pickuptime" name="appt" min="11:00" max="20:00">
                         </div>
                     </div>
                 </div>

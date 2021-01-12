@@ -19,6 +19,8 @@ export class CheckOutComponent implements OnInit {
   orderTax: any;
   insertId: number;
   currentDateTime: any = new Date();
+  pickUpOption: any;
+  pickUpSelect: boolean;
 
   constructor(private orderOnlineService: OrderOnlineService,private submitOrderService: SubmitOrderService, private router: Router) { }
 
@@ -82,4 +84,12 @@ export class CheckOutComponent implements OnInit {
       console.log(this.orderTax)
     },error => console.log(error))
   }
+
+  onItemChange(value){
+    if(value == 'select-time'){
+      this.pickUpSelect = true;
+    }else{
+      this.pickUpSelect = false;
+    }
+ }
 }
