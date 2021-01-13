@@ -24,8 +24,8 @@
                                 Schedule for Later
                             </label>
                         </div>
-                        <div *ngIf="pickUpSelect">
-                            <input type="time" id="pickuptime" name="selectTime" min="11:00" max="20:00" [(ngModel)]="selectTime" (change)="onTimeChange($event.target.value)">
+                        <div *ngIf="pickUpTimeSelected">
+                            <input type="time" id="pickuptime" name="selectTime" min="11:00" max="20:00" [(ngModel)]="selectedTime" (change)="onTimeChange($event.target.value)">
                         </div>
                     </div>
                 </div>

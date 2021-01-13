@@ -20,9 +20,9 @@ export class CheckOutComponent implements OnInit {
   insertId: number;
   currentDateTime: any = new Date();
   pickUpOption: any;
-  pickUpSelect: boolean;
-  selectTime: any;
-  pickUpTime: string;
+  pickUpTimeSelected: boolean;
+  selectedTime: any;
+
 
   constructor(private orderOnlineService: OrderOnlineService, private submitOrderService: SubmitOrderService, private router: Router) { }
 
@@ -41,15 +41,20 @@ export class CheckOutComponent implements OnInit {
     this.orderDetail.subtotal = this.orderSubTotal;
     this.orderDetail.tax = this.orderTax;
     this.orderDetail.total = this.orderTotal;
-    // this.orderDetail.pickup = "ASAP";
     this.orderDetail.status = "Active"
     this.orderDetail.date = formatDate(this.currentDateTime, 'yyyy-MM-dd', 'en-US');
     this.orderDetail.time = formatDate(this.currentDateTime, 'hh:mm a', 'en-US');
+    
+    if(this.pickUpTimeSelected){
+      this.orderDetail.pickup = this.selectedTime;
+    }else{
+      this.orderDetail.pickup = "ASAP";
+    }
 
     // Remove the id
     this.orderItemList.forEach(u => delete u.id);
-
     this.orderDetail.orderItem = this.orderItemList;
+
     this.submitOrder();
   }
 
@@ -86,10 +91,9 @@ export class CheckOutComponent implements OnInit {
 
   onItemChange(value) {
     if (value == 'select-time') {
-      this.pickUpSelect = true;
+      this.pickUpTimeSelected = true;
     } else {
-      this.pickUpSelect = false;
-      this.orderDetail.pickup = 'ASAP';
+      this.pickUpTimeSelected = false;
     }
   }
 
