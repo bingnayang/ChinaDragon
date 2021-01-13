@@ -21,8 +21,10 @@ export class CheckOutComponent implements OnInit {
   currentDateTime: any = new Date();
   pickUpOption: any;
   pickUpSelect: boolean;
+  selectTime: any;
+  pickUpTime: string;
 
-  constructor(private orderOnlineService: OrderOnlineService,private submitOrderService: SubmitOrderService, private router: Router) { }
+  constructor(private orderOnlineService: OrderOnlineService, private submitOrderService: SubmitOrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCartOrderList();
@@ -31,20 +33,18 @@ export class CheckOutComponent implements OnInit {
     this.getOrderTotal();
   }
 
-  backToCart(){
+  backToCart() {
     this.router.navigate(['cart']);
   }
 
-  onSubmit(){
-    // this.currentDateTime = new Date();
-
+  onSubmit() {
     this.orderDetail.subtotal = this.orderSubTotal;
     this.orderDetail.tax = this.orderTax;
     this.orderDetail.total = this.orderTotal;
-    this.orderDetail.pickup = "ASAP";
+    // this.orderDetail.pickup = "ASAP";
     this.orderDetail.status = "Active"
-    this.orderDetail.date = formatDate(this.currentDateTime, 'yyyy-MM-dd','en-US');
-    this.orderDetail.time = formatDate(this.currentDateTime, 'hh:mm a','en-US');
+    this.orderDetail.date = formatDate(this.currentDateTime, 'yyyy-MM-dd', 'en-US');
+    this.orderDetail.time = formatDate(this.currentDateTime, 'hh:mm a', 'en-US');
 
     // Remove the id
     this.orderItemList.forEach(u => delete u.id);
@@ -53,43 +53,47 @@ export class CheckOutComponent implements OnInit {
     this.submitOrder();
   }
 
-  private submitOrder(){
+  private submitOrder() {
     this.submitOrderService.submitOrder(this.orderDetail).subscribe(data => {
       this.submitOrderService.submitedOrderId = data;
       this.router.navigate(['comfirmation']);
     });
   }
 
-  private getCartOrderList(){
+  private getCartOrderList() {
     this.orderOnlineService.getCartOrder().subscribe(data => {
       this.orderItemList = data;
-    },error => console.log(error))
+    }, error => console.log(error))
   }
 
-  private getCartOrderSubTotal(){
+  private getCartOrderSubTotal() {
     this.orderOnlineService.calculateSubTotal().subscribe(data => {
       this.orderSubTotal = data;
-    },error => console.log(error))
+    }, error => console.log(error))
   }
 
-  private getOrderTotal(){
+  private getOrderTotal() {
     this.orderOnlineService.calculateSubTotal().subscribe(data => {
-      this.orderTotal = data+(data * 0.08);
-    },error => console.log(error))
+      this.orderTotal = data + (data * 0.08);
+    }, error => console.log(error))
   }
 
-  private getTaxAmount(){
+  private getTaxAmount() {
     this.orderOnlineService.calculateSubTotal().subscribe(data => {
       this.orderTax = data * 0.08;
-      console.log(this.orderTax)
-    },error => console.log(error))
+    }, error => console.log(error))
   }
 
-  onItemChange(value){
-    if(value == 'select-time'){
+  onItemChange(value) {
+    if (value == 'select-time') {
       this.pickUpSelect = true;
-    }else{
+    } else {
       this.pickUpSelect = false;
+      this.orderDetail.pickup = 'ASAP';
     }
- }
+  }
+
+  onTimeChange(selectTime) {
+    this.orderDetail.pickup = selectTime;
+  }
 }
