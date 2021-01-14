@@ -24,12 +24,7 @@
             <div class="col-sm-3"><h5>PICKUP TIME</h5></div>
             <div class="col-sm-9">
                 <h6>Date & Time</h6>
-                <div *ngIf="submitedOrder.pickup == 'ASAP'; else selectedTime">
-                    <p>Jan 01, 2020 Monday - ASAP</p>
-                </div>
-                <ng-template #selectedTime>
-                    <p>Jan 01, 2020 Monday - {{ submitedOrder.pickup }}</p>
-                </ng-template>
+                {{ submitedOrder.date }} -/- {{ submitedOrder.pickup }}
             </div>
         </div>
         <hr>

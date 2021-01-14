@@ -31,17 +31,22 @@ public class SubmitOrderRESTController {
 	
 	@PostMapping("/submit")
 	public int saveOrder(@RequestBody SubmitOrder theSubmitOrder) throws ParseException {
-		// Convert time format
-		DateFormat outputFormat = new SimpleDateFormat("hh:mm a", Locale.US);
-		DateFormat inputFormat = new SimpleDateFormat("HH:mm", Locale.US);
-		Date date = inputFormat.parse(theSubmitOrder.getPickup());
-		String outputText = outputFormat.format(date);
-		// Set 12hr format result
-        theSubmitOrder.setPickup(outputText);
-        
-		theSubmitOrder.setId(0);
+		String getPickUpValue = theSubmitOrder.getPickup();
+		
+		if(theSubmitOrder.getPickup().contains("A")) {
+			System.out.println("ASAP");
+		}else {
+			// Convert time format
+			DateFormat outputFormat = new SimpleDateFormat("hh:mm a", Locale.US);
+			DateFormat inputFormat = new SimpleDateFormat("HH:mm", Locale.US);
+			Date date = inputFormat.parse(theSubmitOrder.getPickup());
+			String outputText = outputFormat.format(date);
+			// Set 12hr format result
+	        theSubmitOrder.setPickup(outputText);	
+		}
+		
+		theSubmitOrder.setId(0);        
 		int id = submitOrderService.save(theSubmitOrder);
-		System.out.println("Insert Id: "+id);
 		return id;
 	}	
 	
