@@ -23,7 +23,6 @@ export class CheckOutComponent implements OnInit {
   pickUpTimeSelected: boolean;
   selectedTime: any;
 
-
   constructor(private orderOnlineService: OrderOnlineService, private submitOrderService: SubmitOrderService, private router: Router) { }
 
   ngOnInit(): void {

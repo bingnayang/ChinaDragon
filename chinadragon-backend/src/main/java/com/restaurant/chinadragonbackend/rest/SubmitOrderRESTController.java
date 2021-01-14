@@ -1,6 +1,10 @@
 package com.restaurant.chinadragonbackend.rest;
 
-import java.util.List;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +30,15 @@ public class SubmitOrderRESTController {
 	}
 	
 	@PostMapping("/submit")
-	public int saveOrder(@RequestBody SubmitOrder theSubmitOrder) {
+	public int saveOrder(@RequestBody SubmitOrder theSubmitOrder) throws ParseException {
+		// Convert time format
+		DateFormat outputFormat = new SimpleDateFormat("hh:mm a", Locale.US);
+		DateFormat inputFormat = new SimpleDateFormat("HH:mm", Locale.US);
+		Date date = inputFormat.parse(theSubmitOrder.getPickup());
+		String outputText = outputFormat.format(date);
+		// Set 12hr format result
+        theSubmitOrder.setPickup(outputText);
+        
 		theSubmitOrder.setId(0);
 		int id = submitOrderService.save(theSubmitOrder);
 		System.out.println("Insert Id: "+id);
