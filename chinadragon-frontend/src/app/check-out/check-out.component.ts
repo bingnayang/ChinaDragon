@@ -37,6 +37,7 @@ export class CheckOutComponent implements OnInit {
   }
 
   onSubmit() {
+    this.orderDetail.name = this.orderDetail.name[0].toUpperCase() + this.orderDetail.name.slice(1);
     this.orderDetail.subtotal = this.orderSubTotal;
     this.orderDetail.tax = this.orderTax;
     this.orderDetail.total = this.orderTotal;
